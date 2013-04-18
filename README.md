@@ -1,4 +1,4 @@
-# CantWait
+# cant_wait
 
 TODO: Write a gem description
 
@@ -6,7 +6,7 @@ TODO: Write a gem description
 
 Add this line to your application's Gemfile:
 
-    gem 'cant_wait'
+    gem 'cant_wait', '~> 0.0.0'
 
 And then execute:
 
