@@ -1,3 +1,9 @@
+##
+# This class is a Railtie which adds an initializer to Rails
+#
+# It reads the database configuration timeout, and if the adapter is PostgreSQL,
+# sets its value as the PostgreSQL statement_timeout.
+
 class CantWaitRailtie < Rails::Railtie
 
   initializer 'cant_wait.set_timeout' do
