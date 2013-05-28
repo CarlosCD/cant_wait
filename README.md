@@ -6,7 +6,6 @@ If any SQL statement takes more time than the timeout value (measured in millise
 would raise a PGError exception.
 
     ActiveRecord::StatementInvalid: PGError: ERROR:  canceling statement due to statement timeout
-    ...
 
 From the PostgreSQL documentation:
 
@@ -23,7 +22,7 @@ From the PostgreSQL documentation:
 
 The gem has been tested for ruby 1.9.2 and above, as well as with Rails 3.0.3 and above.  Tested also with PostgreSQL 8 and 9, but it may work also in other versions supported by Active Record (see PostgreSQL documentation).
 
-If you find any problems, please feel free to open any issues within the gem repository.
+If you find any problems, please feel free to open any issues within the gem repository ([GitHub](https://github.com/CarlosCD/cant_wait)).
 
 
 ## Installation
@@ -49,7 +48,12 @@ In the file config/database.yml, indicate a timeout in milliseconds for each env
 Then restart the application to establish the new configuration parameter(s).
 
 
-## Contributing
+## Development / Contributing
+
+* Source hosted on [GitHub](https://github.com/CarlosCD/cant_wait)
+* Details on the test setup are in the file Readme.md within the test folder. It includes details on testing in several Ruby and Rails versions.
+
+Contributing:
 
 1. Fork it
 2. Create your feature branch (`git checkout -b my-new-feature`)
@@ -58,4 +62,4 @@ Then restart the application to establish the new configuration parameter(s).
 5. Create new Pull Request
 
 
-June 2013
+May 2013

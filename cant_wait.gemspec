@@ -26,8 +26,23 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'rails', '>= 3.0.3'
 
   spec.files         = `git ls-files`.split($/)
+  spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ['lib']
 
   spec.add_development_dependency 'bundler', '~> 1.3'
   spec.add_development_dependency 'rake', '~> 10.0'
+  if RUBY_ENGINE == 'jruby' && RUBY_PLATFORM == 'java'
+    spec.add_development_dependency 'activerecord-jdbc-adapter', '~> 1.2'
+    spec.add_development_dependency 'activerecord-jdbcpostgresql-adapter', '~> 1.2'
+    spec.add_development_dependency 'jdbc-postgres', '~> 9'
+  else
+    spec.add_development_dependency 'pg', '~> 0'
+  end
+  if RUBY_PLATFORM =~ /darwin/i
+    spec.add_development_dependency 'minitest-growl', '~> 0.0.3'
+    # minitest-growl small problem with minitest 5:
+    spec.add_development_dependency('minitest', '~> 4.7.4')
+  else
+    spec.add_development_dependency('minitest', '~> 5') if RUBY_VERSION < '1.9.3'
+  end
 end

@@ -35,10 +35,6 @@ namespace :debug do
 
   private
 
-  def boolean_env_param(environment_var, *values)
-    ENV[environment_var] && values.include?(ENV[environment_var].strip.downcase)
-  end
-
   # options = { get_it_back: false, install_gem: false }
   def use_gem_as_it_is(gem_spec, pause=true, options={})
 
