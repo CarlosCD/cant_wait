@@ -12,9 +12,7 @@ From the PostgreSQL documentation:
 
 >     statement_timeout (integer)
 > 
->          Abort any statement that takes more than the specified number of milliseconds, starting from the time the command arrives at the
->          server from the client. If log_min_error_statement is set to ERROR or lower, the statement that timed out will also be logged. A
->          value of zero (the default) turns this off.
+>          Abort any statement that takes more than the specified number of milliseconds, starting from the time the command arrives at the server from the client. If log_min_error_statement is set to ERROR or lower, the statement that timed out will also be logged.  A value of zero (the default) turns this off.
 > 
 >          Setting statement_timeout in postgresql.conf is not recommended because it would affect all sessions.
 > 
@@ -32,7 +30,7 @@ If you find any problems, please feel free to open any issues within the gem rep
 
 Add this line to your application's Gemfile:
 
-    gem 'cant_wait', '~> 0.0.0'
+    gem 'cant_wait', '~> 0.0.1'
 
 And then execute:
 
@@ -48,8 +46,6 @@ In the file config/database.yml, indicate a timeout in milliseconds for each env
       timeout: 120_000  # 2 minutes
       ...
 
-(note that the syntax 120_000 is only valid for ruby 1.9.3 or above, so avoid to use _ to separate the thousands for previous versions of ruby).
-
 Then restart the application to establish the new configuration parameter(s).
 
 
@@ -60,3 +56,6 @@ Then restart the application to establish the new configuration parameter(s).
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
+
+June 2013
