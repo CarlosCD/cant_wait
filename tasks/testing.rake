@@ -34,7 +34,7 @@ namespace :test do
         puts 'At least Ruby 1.9.3 is required for rails 4 or above...'
       else
         # Uses Gemfile for the given version of rails
-        gemfile_path = escape_filename_espaces TEST_RAILS_APP[num][:rails_root]
+        gemfile_path = escape_filename_spaces TEST_RAILS_APP[num][:rails_root]
         gemfile = gemfile_path<<'/Gemfile'
         ENV['BUNDLE_GEMFILE'] = gemfile
         if verbose
@@ -98,9 +98,9 @@ namespace :test do
           puts "  Present directory (pwd): #{FileUtils.pwd}"
           puts "  Changing to the app root..."
         end
-        FileUtils.cd escape_filename_espaces TEST_RAILS_APP[num][:rails_root]
+        FileUtils.cd escape_filename_spaces TEST_RAILS_APP[num][:rails_root]
         puts "  Now present directory (pwd) is: #{FileUtils.pwd}" if verbose
-        app_root = escape_filename_espaces FileUtils.pwd
+        app_root = escape_filename_spaces FileUtils.pwd
         puts " App Root: #{app_root}" if verbose
         # Rebuilding the Gemfile.lock installs missing gems
         if rebuild
@@ -127,7 +127,7 @@ namespace :test do
 
   private
 
-  def escape_filename_espaces(filename)
+  def escape_filename_spaces(filename)
     filename.gsub(' ', '\ ')
   end
 

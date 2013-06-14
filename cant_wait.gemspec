@@ -6,7 +6,8 @@ require 'cant_wait/version'
 Gem::Specification.new do |spec|
   spec.name          = 'cant_wait'
   spec.version       = CantWait::VERSION
-  spec.summary       = %q{Adds statement timeout for PostgreSQL databases in Ruby on Rails. Timeout is measured in milliseconds.}
+  spec.platform      = Gem::Platform::RUBY
+  spec.summary       = 'Adds statement timeout for PostgreSQL databases in Ruby on Rails. Timeout is measured in milliseconds.'
   spec.description   = <<-EOF
     Adds a timeout setting for PostgreSQL databases in a Ruby on Rails application.
     If any SQL statement takes more time than the timeout value, it will be cancelled, and ActiveRecord
@@ -21,8 +22,8 @@ Gem::Specification.new do |spec|
 
   spec.license       = 'MIT'
 
-  spec.authors       = ['Carlos A. Carro Duplá']
-  spec.email         = ['ccarrodupla@gmail.com']
+  spec.author        = 'Carlos A. Carro Duplá'
+  spec.email         = 'ccarrodupla@gmail.com'
   spec.homepage      = 'https://github.com/CarlosCD/cant_wait'
 
   spec.files         = `git ls-files`.split($/)
