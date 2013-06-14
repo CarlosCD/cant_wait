@@ -2,13 +2,13 @@
 #
 #  rake gemspec_valid     # Validate the gemspec
 #
-#  rake build             # Build cant_wait-0.0.1.gem into the pkg directory.
+#  rake build             # Build cant_wait-X.Y.Z.gem into the pkg directory.
 #  rake clean             # Clean automatically generated gem files (removes the pkg folder).
 #
-#  rake install           # Build and install cant_wait-0.0.1.gem into system gems.
+#  rake install           # Build and install cant_wait-X.Y.Z.gem into system gems.
 #
-#  rake push              # Push pkg/cant_wait-0.0.1.gem to rubygems, if it exists.
-#  rake release           # Create tag v0.0.1 and build and push cant_wait-0.0.1.gem to Rubygems
+#  rake push              # Push pkg/cant_wait-X.Y.Z.gem to rubygems, if it exists.
+#  rake release           # Create tag vX.Y.Z and build and push cant_wait-X.Y.Z.gem to Rubygems
 
 begin
   require 'bundler/gem_tasks'  # Adds these tasks: build, install and release

@@ -1,3 +1,6 @@
-## 0.0.2.alpha (June 13, 2013)
+0.0.2.alpha (June 13, 2013)
+===========================
 
-No changes yet.
+Documentation:
+
+  - Minor changes in the documentation.

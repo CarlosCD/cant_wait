@@ -29,7 +29,7 @@ If you find any problems, please feel free to open any issues within the gem rep
 
 Add this line to your application's Gemfile:
 
-    gem 'cant_wait', '~> 0.0.1'
+    gem 'cant_wait', '~> 0.0.2'
 
 And then execute:
 
