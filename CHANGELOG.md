@@ -8,3 +8,4 @@ Documentation:
 Development:
 
   - Minor code refactoring (no changes in functionality).
+  - Added a new rake task to run test:bundle and test:run in one pass.

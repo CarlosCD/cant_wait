@@ -1,7 +1,8 @@
-# Testing:
+# Testing tasks:
 #
 #  rake test:bundle       # Installs gems needed for the test apps (Bundle Install for each Rails app's Gemfile)
 #  rake test:run          # Tests the gem's behavior, using 5 test rails apps of different versions, and random timeouts
+#  rake test:all          # Tests the gem's behavior, installing needed gems for the test apps first
 
 namespace :test do
 
@@ -10,6 +11,24 @@ namespace :test do
                     { version: '3.1.12',    rails_root: 'test/test_apps/Test_3_1_12'},
                     { version: '3.2.13',    rails_root: 'test/test_apps/Test_3_2_13'},
                     { version: '4.0.0.rc1', rails_root: 'test/test_apps/Test_4_0_0_rc1'}]
+
+  # Argument (env.):
+  #   REBUILD=f   It doesn't remove the Gemfile.lock for the test apps, not forcing a clean bundle install
+  #   Other possible values (meaning the same): f, false, n, no, off, nope
+  #   Default: Rebuild all when no flag is present.
+  #            (The opposite default as for test:bundle)
+  # Examples:
+  #   $ rake test:all
+  #   $ rake test:all REBUILD=no
+  desc "Tests the gem's behavior, installing needed gems for the test apps first"
+  task :all do
+    # Rebuild setting:
+    rebuild = !boolean_env_param('REBUILD', 'f', 'n', 'off', 'nope', 'no', 'false')
+    ENV['REBUILD'] = rebuild.to_s
+    puts 'Not rebuilding the Gemfile.lock for the test rails apps' unless rebuild
+    Rake::Task['test:bundle'].invoke
+    Rake::Task['test:run'].invoke
+  end
 
   # Argument (env.):
   #    VERBOSE=t     Gives more information about what's going on
