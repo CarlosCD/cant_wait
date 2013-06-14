@@ -70,7 +70,7 @@ namespace :test do
   #   VERBOSE=t   It gives more information about what's going on
   #   REBUILD=t   It removes the Gemfile.lock, so it forces a clean bundle install
   #   Other possible values (meaning the same): t, true, y, yes, on, ok
-  #   Default: no verbose (no flags)
+  #   Default: no verbose, and no rebuild (no flags)
   # Example:
   #   $ rake test:bundle_apps REBUILD=y
   desc "Installs gems needed for the test apps (Bundle Install for each Rails app's Gemfile)"

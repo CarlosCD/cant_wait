@@ -7,18 +7,9 @@ Gem::Specification.new do |spec|
   spec.name          = 'cant_wait'
   spec.version       = CantWait::VERSION
   spec.platform      = Gem::Platform::RUBY
-  spec.summary       = 'Adds statement timeout for PostgreSQL databases in Ruby on Rails. Timeout is measured in milliseconds.'
-  spec.description   = <<-EOF
-    Adds a timeout setting for PostgreSQL databases in a Ruby on Rails application.
-    If any SQL statement takes more time than the timeout value, it will be cancelled, and ActiveRecord
-    would raise a PGError exception.
-    In the config/database.yml file, indicate a timeout in milliseconds for each environment:
-      production:
-        adapter: postgresql
-        timeout: 120_000  # 2 minutes
-        ...
-    (see documentation for more details)
-  EOF
+  spec.summary       = 'Complements the Ruby on Rails web application framework by providing statement timeouts for PostgreSQL databases.'
+  spec.description   = 'Provides statement timeouts for PostgreSQL databases in a Ruby on Rails web application. Stops any SQL statement ' <<
+                       'that takes more than a specified number of milliseconds.'
 
   spec.license       = 'MIT'
 

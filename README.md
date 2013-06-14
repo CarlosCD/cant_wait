@@ -1,11 +1,8 @@
-# cant_wait
+# cant_wait [![Gem Version](https://badge.fury.io/rb/cant_wait.png)](http://badge.fury.io/rb/cant_wait)
+
+-------
 
 This ruby gem allows to add a statement timeout for PostgreSQL databases within a Ruby on Rails application.
-
-If any SQL statement takes more time than the timeout value (measured in milliseconds), its execution will be cancelled, and Active Record
-would raise a PGError exception.
-
-    ActiveRecord::StatementInvalid: PGError: ERROR:  canceling statement due to statement timeout
 
 From the PostgreSQL documentation:
 
@@ -20,9 +17,25 @@ From the PostgreSQL documentation:
 (Visit <http://www.postgresql.org/docs/devel/static/runtime-config-client.html> for more information)
 
 
-The gem has been tested for ruby 1.9.2 and above, as well as with Rails 3.0.3 and above.  Tested also with PostgreSQL 8 and 9, but it may work also in other versions supported by Active Record (see PostgreSQL documentation).
+The gem has been tested with Rails 3.0.3 and above.  Tested also with PostgreSQL 8 and 9, but it may work also in other versions supported by Active Record (see PostgreSQL documentation). See also test/README.md for more details.
 
-If you find any problems, please feel free to open any issues within the gem repository ([GitHub](https://github.com/CarlosCD/cant_wait)).
+If any SQL statement takes more time than the timeout value (measured in milliseconds), its execution will be cancelled, and Active Record would raise a PGError exception.
+
+    ActiveRecord::StatementInvalid: PGError: ERROR:  canceling statement due to statement timeout
+
+If you find any problems, please feel free to open an issue in the gem repository ([GitHub](https://github.com/CarlosCD/cant_wait)).
+
+
+## Supported Rubies
+
+**cant_wait** supports and has been tested against the following Ruby versions:
+
+- 1.9.2
+- 1.9.3
+- 2.0.0
+- jruby 1.7.4
+
+The gem may work just fine with a Ruby version not listed above. If you'd like to maintain a Ruby that isn't listed, please let me know with a pull request.
 
 
 ## Installation
@@ -62,4 +75,9 @@ Contributing:
 5. Create new Pull Request
 
 
-May 2013
+## License
+
+**cant_wait** is released under the [MIT License](http://opensource.org/licenses/MIT).
+
+
+June 2013
