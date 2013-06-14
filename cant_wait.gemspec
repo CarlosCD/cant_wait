@@ -6,8 +6,7 @@ require 'cant_wait/version'
 Gem::Specification.new do |spec|
   spec.name          = 'cant_wait'
   spec.version       = CantWait::VERSION
-  spec.authors       = ['Carlos A. Carro Duplá']
-  spec.email         = ['ccarrodupla@gmail.com']
+  spec.summary       = %q{Adds statement timeout for PostgreSQL databases in Ruby on Rails. Timeout is measured in milliseconds.}
   spec.description   = <<-EOF
     Adds a timeout setting for PostgreSQL databases in a Ruby on Rails application.
     If any SQL statement takes more time than the timeout value, it will be cancelled, and ActiveRecord
@@ -19,17 +18,22 @@ Gem::Specification.new do |spec|
         ...
     (see documentation for more details)
   EOF
-  spec.summary       = %q{Adds statement timeout for PostgreSQL databases in Ruby on Rails. Timeout is measured in milliseconds.}
-  spec.homepage      = 'https://github.com/CarlosCD/cant_wait'
+
   spec.license       = 'MIT'
+
+  spec.authors       = ['Carlos A. Carro Duplá']
+  spec.email         = ['ccarrodupla@gmail.com']
+  spec.homepage      = 'https://github.com/CarlosCD/cant_wait'
+
+  spec.files         = `git ls-files`.split($/)
+  spec.require_paths = ['lib']
+
+  spec.add_dependency 'rails', '>= 3.0.3'
+
   spec.signing_key = '/users/CarlosCD/.ssh/private_key.pem'
   spec.cert_chain  = ['/users/CarlosCD/.ssh/public_cert.pem']
 
-  spec.add_dependency 'rails', '>= 3.0.3'
-  spec.files         = `git ls-files`.split($/)
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
-  spec.require_paths = ['lib']
-
   spec.add_development_dependency 'bundler', '~> 1.3'
   spec.add_development_dependency 'rake', '~> 10.0'
   if RUBY_ENGINE == 'jruby' && RUBY_PLATFORM == 'java'

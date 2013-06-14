@@ -4,4 +4,3 @@ test:
   database: test
   username: tester
   password: secret
-  timeout: 7943563
