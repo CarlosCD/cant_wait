@@ -8,4 +8,5 @@ Documentation:
 Development:
 
   - Minor code refactoring (no changes in functionality).
+  - Added tests for Rails rc2.
   - Added a new rake task to run test:bundle and test:run in one pass.

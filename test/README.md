@@ -92,7 +92,12 @@ If so wanted, run the tests several times.  The tests use different random timeo
         Rails 3.0.20     Last patchlevel of Rails 3.0 (at this moment)
         Rails 3.1.12     Last patchlevel of Rails 3.1
         Rails 3.2.13     Last patchlevel of Rails 3.2 (many security fixes, last stable version)
-        Rails 4.0.0.rc1  Last Release candidate for Rails 4, the most stable version at this point in time.
+        Rails 4.0.0.rc2  Last Release candidate for Rails 4, the most stable version at this point in time.
+
+Note: in the case of versions of Rails not final yet, they may need to be manually installed before-hand.  For example:
+
+    $ gem install rails --version 4.0.0.rc2 --no-ri --no-rdoc
+    $ gem install sass-rails -v 4.0.0.rc2
 
 * PostgreSQL versions 8.3.6 and 9.2.4.
 

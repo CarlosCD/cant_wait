@@ -1,4 +1,4 @@
-Test400Rc1::Application.routes.draw do
+Test400Rc2::Application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -39,6 +39,13 @@ Test400Rc1::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
+  
+  # Example resource route with concerns:
+  #   concern :toggleable do
+  #     post 'toggle'
+  #   end
+  #   resources :posts, concerns: :toggleable
+  #   resources :photos, concerns: :toggleable
 
   # Example resource route within a namespace:
   #   namespace :admin do
