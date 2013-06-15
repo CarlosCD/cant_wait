@@ -46,6 +46,7 @@ namespace :test do
       puts "We'll run 5 times the test #1 (5 rails versions)"
       puts "Gem's ENV['BUNDLE_GEMFILE']='#{ENV['BUNDLE_GEMFILE']}'"
     end
+    all_passing = true  # Used to signal to travis-ci a build failure
     can_wait_bundle_gemfile = ENV['BUNDLE_GEMFILE']
     5.times do |num|
       puts "====TESTING Rails version #{TEST_RAILS_APP[num][:version]}================="
@@ -70,10 +71,11 @@ namespace :test do
           end
           # Run several timeouts test for that version of rails (bundle exec...)
           #   Only the last argument (V) is optional here:
-          system "bundle exec ruby test/cant_wait_test.rb #{num} #{@gem_spec.version} #{'V' if verbose}"
+          all_passing = false unless system "bundle exec ruby test/cant_wait_test.rb #{num} #{@gem_spec.version} #{'V' if verbose}"
         else
           puts ' bundle check and bundle failed! Check your rails test app Gemfile.'
-          puts ' If there are missing gems, run rake test:bundle_apps'
+          puts ' If there are missing gems, run rake test:bundle'
+          all_passing = false
         end
       end
     end
@@ -83,6 +85,7 @@ namespace :test do
       puts "Finally set again the gem ENV['BUNDLE_GEMFILE'] as:"
       puts "  '#{ENV['BUNDLE_GEMFILE']}'"
     end
+    exit(1) unless all_passing  # non zero meand build failure
   end
 
   # Arguments (env.):

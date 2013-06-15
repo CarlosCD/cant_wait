@@ -1,8 +1,7 @@
-# cant_wait [![Gem Version](https://badge.fury.io/rb/cant_wait.png)](http://badge.fury.io/rb/cant_wait)
+# cant_wait [![Gem Version](https://badge.fury.io/rb/cant_wait.png)](http://badge.fury.io/rb/cant_wait) [![Build Status](https://api.travis-ci.org/CarlosCD/cant_wait.png)](https://travis-ci.org/CarlosCD/cant_wait)
 
--------
 
-This ruby gem allows to add a statement timeout for PostgreSQL databases within a Ruby on Rails application.
+This Ruby gem allows to add a statement timeout for PostgreSQL databases within a Ruby on Rails application.
 
 From the PostgreSQL documentation:
 
@@ -26,18 +25,6 @@ If any SQL statement takes more time than the timeout value (measured in millise
 If you find any problems, please feel free to open an issue in the gem repository ([GitHub](https://github.com/CarlosCD/cant_wait)).
 
 
-## Supported Rubies
-
-**cant_wait** supports and has been tested against the following Ruby versions:
-
-- 1.9.2
-- 1.9.3
-- 2.0.0
-- jruby 1.7.4
-
-The gem may work just fine with a Ruby version not listed above. If you'd like to maintain a Ruby that isn't listed, please let me know with a pull request.
-
-
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -49,22 +36,35 @@ And then execute:
     $ bundle
 
 
+## Supported Rubies
+
+**cant_wait** has been tested with the following versions of Ruby:
+
+- 1.9.2
+- 1.9.3
+- 2.0.0
+- jruby
+- Rubinius
+
+The gem may work just fine with a Ruby flavors/version not listed above.  See the development documentation for more details.
+
+
 ## Usage
 
-In the file config/database.yml, indicate a timeout in milliseconds for each environment:
+In the file <tt>config/database.yml<tt /> of the Rails application, indicate a timeout in milliseconds for each environment:
 
     production:
       adapter: postgresql
-      timeout: 120_000  # 2 minutes
+      timeout: 180_000  # 3 minutes
       ...
 
-Then restart the application to establish the new configuration parameter(s).
+Then restart the application to establish the new database settings.
 
 
 ## Development / Contributing
 
 * Source hosted on [GitHub](https://github.com/CarlosCD/cant_wait)
-* Details on the test setup are in the file Readme.md within the test folder. It includes details on testing in several Ruby and Rails versions.
+* Details on the test setup are in the file README.md within the test folder.  It includes details on testing in several Ruby and Rails versions.
 
 Contributing:
 

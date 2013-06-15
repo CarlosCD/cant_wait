@@ -1,8 +1,8 @@
-# cant_wait
-# Development and Test
+# cant_wait ~ Development and Test
+[![Gem Version](https://badge.fury.io/rb/cant_wait.png)](http://badge.fury.io/rb/cant_wait) [![Build Status](https://api.travis-ci.org/CarlosCD/cant_wait.png)](https://travis-ci.org/CarlosCD/cant_wait)
 
 
-## Test preferences and setup
+## Test setup and choices
 
 - Minitest, to keep things simple.
 - PostgreSQL database server (localhost or not).
@@ -11,13 +11,23 @@
 
 ## Test strategy: different Rails apps with random timeouts
 
-The approach of using minimal Rails components (ActiveRecord, Railties) is problematic due to the amount of code that Rails loads and of how it changes in the default behavior of Ruby.  Running several Rails apps at the same time, and even if it is done in different threads, may result in:
+### The problem
+
+The approach of using minimal Rails components (ActiveRecord, Railties) is problematic due to the amount of code that Rails loads and of how it changes in the default Ruby behavior.  I opted here to test the same way an end user would use the gem.
+
+To test in different Rails versions requires running several Rails apps simultaneous or sequentially. Even if it is done in different threads, may result in:
 
     RuntimeError: You cannot have more than one Rails::Application
 
-This approach also makes the test cases too distant to the real conditions you may encounter in isolated Rails applications.  I finally choose to test several versions of Rails/ActiveRecord independently.
+This approach also makes the test cases too distant to the real conditions you may encounter in isolated Rails applications.
 
-I created 5 simple Rails apps in the folder test/test_apps.  Then I modified their Gemfile by adding gems for PostgreSQL, Minitest and Growl:
+### A solution
+
+I finally chose to test several versions of Rails/ActiveRecord independently.
+
+I created 5 simple Rails apps, of different versions, in the folder test/test_apps.
+
+Then I modified their Gemfile by adding gems for PostgreSQL, Minitest and Growl:
 
     if RUBY_ENGINE == 'jruby' && RUBY_PLATFORM == 'java'
       gem 'activerecord-jdbc-adapter', '~> 1.2'
@@ -36,20 +46,22 @@ I created 5 simple Rails apps in the folder test/test_apps.  Then I modified the
 
     gem 'cant_wait', path: File.expand_path('../../../..', __FILE__)
 
-The rails apps require bundle install, specially when changing the version of Ruby to be used. To make it easier, I added a rake task (rake test:bundle).
+The rails apps require bundle install, specially when changing the version of Ruby to be used. To make it easier, I added a rake task (<tt>rake test:bundle<tt />).
 
-The test is run through the rake test:run command.  Due to the complex setup needed, I choose not to use the rake default to run the test.
-
-The test (rake test:run) goes over each rails app in sequence and:
+The test is run through the <tt>rake test:run command<tt />.  The test goes over each rails app in sequence and:
 
 1. It sets Bundle to use the test app's Gemfile
-2. It creates the app's config/database.yml with a random timeout
+2. It creates the app's <tt>config/database.yml<tt /> with a random timeout
 3. It starts Rails
 4. It checks the version of Rails and ActiveRecord running.
 5. It checks that the PostgreSQL connection's statement_timeout is the expected.
 
+Due to the complex setup needed, I choose not to use the rake default to run the test, just to signal the tester to stop to consider these choices.
 
-## The Testing process
+And additional <tt>rake test:all<tt /> will do both the bundle install and run the tests. This is the way travis-ci is set to run.
+
+
+## The Testing process in detail
 
 After cloning the gem, you can start testing it by following these steps:
 
@@ -58,13 +70,13 @@ After cloning the gem, you can start testing it by following these steps:
 
         rvm use 1.9.3@mygemset
 
-2. Optional: if you are using Mac OS, get Growl
+2. Optional: if you are using Mac OS X, get Growl
 
 3. Get the gem's dependencies:
 
         bundle
 
-4. Set up your PostgreSQL test database and edit accordingly the file test/database.yml
+4. Set up your PostgreSQL test database and edit accordingly the file <tt>test/database.yml<tt />
 
 5. Get the Rails gems used by the test rails apps included:
 
@@ -76,15 +88,25 @@ After cloning the gem, you can start testing it by following these steps:
 
 If so wanted, run the tests several times.  The tests use different random timeout scenarios, so each run may be a bit different.
 
+## Travis
 
-## Tested for
+I added travis-ci.org to check every build, as well as a badge to check the status last commit.
+
+Check the .travis.yml file for details.
+
+
+## Tested with
 
 * Versions of Ruby:
 
-        jruby 1.7.4
-        1.9.2-p320  (MRI's last patchlevel of 1.9.2)
-        1.9.3-p429  (MRI last patchlevel of 1.9.3)
-        2.0.0-p195  (MRI last patchlevel of 2.0.0)
+        1.9.2-p320       (MRI's last patchlevel of 1.9.2)  Linux and MacOS X
+        1.9.3-p327       (MRI)                             Linux
+        1.9.3-p429       (MRI last patchlevel of 1.9.3)    MacOS X
+        2.0.0-p0         (MRI)                             Linux
+        2.0.0-p195       (MRI last patchlevel of 2.0.0)    MacOS X
+        jruby 1.7.3      (java 1.7.0_15)                   Linux
+        jruby 1.7.4      (java 1.6.0_45)                   MacOS X
+        Rubinius 2.0.0   (1.9.3, 2013-06-12 JI)            Linux
 
 * Versions of Rails:
 
@@ -92,12 +114,13 @@ If so wanted, run the tests several times.  The tests use different random timeo
         Rails 3.0.20     Last patchlevel of Rails 3.0 (at this moment)
         Rails 3.1.12     Last patchlevel of Rails 3.1
         Rails 3.2.13     Last patchlevel of Rails 3.2 (many security fixes, last stable version)
-        Rails 4.0.0.rc2  Last Release candidate for Rails 4, the most stable version at this point in time.
+        Rails 4.0.0.rc2  Last Release candidate for Rails 4, the most stable at this point in time.
 
-Note: in the case of versions of Rails not final yet, they may need to be manually installed before-hand.  For example:
+  **Note:** in the case of versions of Rails not final yet, <tt>rake test:bundle<tt /> may complain.  In those cases you may need to manually install the gems before running the tests.  For example:
 
-    $ gem install rails --version 4.0.0.rc2 --no-ri --no-rdoc
-    $ gem install sass-rails -v 4.0.0.rc2
+        $ gem install rails --version 4.0.0.rc2 --no-ri --no-rdoc
+        $ gem install sass-rails -v 4.0.0.rc2
+        ...
 
 * PostgreSQL versions 8.3.6 and 9.2.4.
 
