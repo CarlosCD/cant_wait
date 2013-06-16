@@ -1,9 +1,8 @@
-# whitelist/blacklist git branches:
-branches:
-  only:
-    - development
-  except:
-    - master
+# branches:
+#   only:
+#     - development
+#   except:
+#     - master
 language: ruby
 rvm:
   - 1.9.2
