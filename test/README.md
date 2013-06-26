@@ -15,11 +15,11 @@
 
 The approach of using minimal Rails components (ActiveRecord, Railties) is problematic due to the amount of code that Rails loads and of how it changes in the default Ruby behavior.  I opted here to test the same way an end user would use the gem.
 
-To test in different Rails versions requires running several Rails apps simultaneous or sequentially. Even if it is done in different threads, may result in:
+To test in different Rails versions requires running several Rails Apps either simultaneously or sequentially.  Even if it is done in different threads, being a Rails App a singleton, it will result in:
 
     RuntimeError: You cannot have more than one Rails::Application
 
-This approach also makes the test cases too distant to the real conditions you may encounter in isolated Rails applications.
+This path also would make the test cases too distant to the real conditions you may encounter in isolated Rails applications, and even if the singleton restriction is removed, it will still apply to old versions of Rails.
 
 ### A solution
 

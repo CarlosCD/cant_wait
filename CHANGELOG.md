@@ -18,3 +18,7 @@ Development:
 Documentation:
 
   - Minor changes in the documentation
+
+Development:
+
+  - Travis scripts stability fixes
