@@ -23,3 +23,6 @@ Development:
 
   - Travis scripts stability fixes
   - Tests for Rails 4.0.0
+
+0.0.4.alpha (June 26, 2013)
+===========================

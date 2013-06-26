@@ -1,6 +1,6 @@
 # cant_wait
 [![Gem Version](https://badge.fury.io/rb/cant_wait.png)](https://badge.fury.io/rb/cant_wait)
-[![Build Status](https://travis-ci.org/CarlosCD/cant_wait.png?branch=master)](https://travis-ci.org/CarlosCD/cant_wait)
+[![Build Status](https://travis-ci.org/CarlosCD/cant_wait.png?branch=development)](https://travis-ci.org/CarlosCD/cant_wait)
 
 
 This Ruby gem allows to add a statement timeout for PostgreSQL databases within a Ruby on Rails application.
@@ -45,7 +45,7 @@ Then restart the application to establish the new database settings.
 
 Add this line to your application's Gemfile:
 
-    gem 'cant_wait', '~> 0.0.3'
+    gem 'cant_wait', '~> 0.0.4'
 
 And then execute:
 
