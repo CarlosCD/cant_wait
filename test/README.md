@@ -46,19 +46,19 @@ Then I modified their Gemfile by adding gems for PostgreSQL, Minitest and Growl:
 
     gem 'cant_wait', path: File.expand_path('../../../..', __FILE__)
 
-The rails apps require bundle install, specially when changing the version of Ruby to be used. To make it easier, I added a rake task (<tt>rake test:bundle<tt />).
+The rails apps require bundle install, specially when changing the version of Ruby to be used. To make it easier, I added a rake task (<tt>rake test:bundle</tt>).
 
-The test is run through the <tt>rake test:run command<tt />.  The test goes over each rails app in sequence and:
+The test is run through the <tt>rake test:run command</tt>.  The test goes over each rails app in sequence and:
 
 1. It sets Bundle to use the test app's Gemfile
-2. It creates the app's <tt>config/database.yml<tt /> with a random timeout
+2. It creates the app's <tt>config/database.yml</tt> with a random timeout
 3. It starts Rails
 4. It checks the version of Rails and ActiveRecord running.
 5. It checks that the PostgreSQL connection's statement_timeout is the expected.
 
 Due to the complex setup needed, I choose not to use the rake default to run the test, just to signal the tester to stop to consider these choices.
 
-And additional <tt>rake test:all<tt /> will do both the bundle install and run the tests. This is the way travis-ci is set to run.
+And additional <tt>rake test:all</tt> will do both the bundle install and run the tests. This is the way travis-ci is set to run.
 
 
 ## The Testing process in detail
@@ -76,7 +76,7 @@ After cloning the gem, you can start testing it by following these steps:
 
         bundle
 
-4. Set up your PostgreSQL test database and edit accordingly the file <tt>test/database.yml<tt />
+4. Set up your PostgreSQL test database and edit accordingly the file <tt>test/database.yml</tt>
 
 5. Get the Rails gems used by the test rails apps included:
 
@@ -114,13 +114,7 @@ Check the .travis.yml file for details.
         Rails 3.0.20     Last patchlevel of Rails 3.0 (at this moment)
         Rails 3.1.12     Last patchlevel of Rails 3.1
         Rails 3.2.13     Last patchlevel of Rails 3.2 (many security fixes, last stable version)
-        Rails 4.0.0.rc2  Last Release candidate for Rails 4, the most stable at this point in time.
-
-  **Note:** in the case of versions of Rails not final yet, <tt>rake test:bundle<tt /> may complain.  In those cases you may need to manually install the gems before running the tests.  For example:
-
-        $ gem install rails --version 4.0.0.rc2 --no-ri --no-rdoc
-        $ gem install sass-rails -v 4.0.0.rc2
-        ...
+        Rails 4.0.0      Last Release of Rails 4.0
 
 * PostgreSQL versions 8.3.6 and 9.2.4.
 

@@ -2,4 +2,4 @@
 require File.expand_path('../application', __FILE__)
 
 # Initialize the Rails application.
-Test400Rc2::Application.initialize!
+Test400::Application.initialize!

@@ -6,11 +6,12 @@
 
 namespace :test do
 
-  TEST_RAILS_APP = [{ version: '3.0.3',     rails_root: 'test/test_apps/Test_3_0_03'},
-                    { version: '3.0.20',    rails_root: 'test/test_apps/Test_3_0_20'},
-                    { version: '3.1.12',    rails_root: 'test/test_apps/Test_3_1_12'},
-                    { version: '3.2.13',    rails_root: 'test/test_apps/Test_3_2_13'},
-                    { version: '4.0.0.rc2', rails_root: 'test/test_apps/Test_4_0_0_rc2'}]
+  TEST_RAILS_APP = [{ version: '3.0.3',  rails_root: 'test/test_apps/Test_3_0_03'},
+                    { version: '3.0.20', rails_root: 'test/test_apps/Test_3_0_20'},
+                    { version: '3.1.12', rails_root: 'test/test_apps/Test_3_1_12'},
+                    { version: '3.2.13', rails_root: 'test/test_apps/Test_3_2_13'},
+                    { version: '4.0.0',  rails_root: 'test/test_apps/Test_4_0_0' }]
+
 
   # Argument (env.):
   #   REBUILD=f   It doesn't remove the Gemfile.lock for the test apps, not forcing a clean bundle install

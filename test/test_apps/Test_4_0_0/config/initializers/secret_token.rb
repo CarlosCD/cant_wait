@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Test400Rc2::Application.config.secret_key_base = 'e8c346e79c6ed18ca1b7fa38512a52a4101bab3ffa8de317cebd939ae2b8a9249e0324763d615f2c0e9a9d6a4876cb1d339e4bf652794cb14b14bc7925df88cf'
+Test400::Application.config.secret_key_base = '9843a7a0a0b54a6186bf4ba12b405064292c1fe0adef99f496b2940fd5a3ca88b50b93395b14ce2da9fd4683e9d673cd30a77615b99d94a388bfa5ebeeb702fe'
