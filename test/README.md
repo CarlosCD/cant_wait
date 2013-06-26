@@ -1,6 +1,5 @@
 # cant_wait ~ development and test
 [![Gem Version](https://badge.fury.io/rb/cant_wait.png)](https://badge.fury.io/rb/cant_wait)
-[![Build Status](https://api.travis-ci.org/CarlosCD/cant_wait.png)](https://travis-ci.org/CarlosCD/cant_wait)
 
 
 ## Test setup and choices
