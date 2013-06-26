@@ -12,8 +12,8 @@ Development:
   - Minor code refactoring (no changes in functionality)
   - Added a new rake task to run <tt>test:bundle</tt> and <tt>test:run</tt> in one pass
 
-0.0.3.alpha (June 26, 2013)
-===========================
+0.0.3 (June 26, 2013)
+=====================
 
 Documentation:
 
