@@ -31,9 +31,9 @@ Documentation:
 
   - Changes in the documentation
   - Minimum ruby is MRI 1.9.1 or compatible
+  - Added a 'runtime dependencies' security advisory service (a dynamic badge on the README files)
 
 Development:
 
   - Tested with new patches of MRI for C Ruby 1.9.3 and 2.0.0
   - Minor change in the tests
-

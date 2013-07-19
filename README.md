@@ -1,5 +1,6 @@
 # cant_wait
 [![Gem Version](https://badge.fury.io/rb/cant_wait.png)](https://badge.fury.io/rb/cant_wait)
+[![Dependency Status](https://gemnasium.com/CarlosCD/cant_wait.png)](https://gemnasium.com/CarlosCD/cant_wait)
 [![Build Status](https://travis-ci.org/CarlosCD/cant_wait.png?branch=development)](https://travis-ci.org/CarlosCD/cant_wait)
 
 
