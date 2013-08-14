@@ -24,5 +24,13 @@ Development:
   - Travis scripts stability fixes
   - Tests for Rails 4.0.0
 
-0.0.4.alpha (June 26, 2013)
-===========================
+0.0.4.alpha (August 14, 2013)
+=============================
+
+Documentation:
+
+  - Changes in the documentation
+
+Development:
+
+  - Tested with new patches of MRI for C Ruby 1.9.3 and 2.0.0

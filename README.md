@@ -22,11 +22,20 @@ From the PostgreSQL documentation:
 (Visit <http://www.postgresql.org/docs/devel/static/runtime-config-client.html> for more information)
 
 
-If any SQL statement takes more time than the timeout value (measured in milliseconds), its execution will be cancelled, and Active Record would raise a PGError exception.
+If any SQL statement takes more time than the timeout value (measured in milliseconds), its execution will be cancelled, and Active Record would raise an exception.
 
     ActiveRecord::StatementInvalid: PGError: ERROR:  canceling statement due to statement timeout
 
-If you find any problems, please feel free to open an issue in the gem repository ([GitHub](https://github.com/CarlosCD/cant_wait)).
+
+## Installation
+
+Add this line to your application's Gemfile:
+
+    gem 'cant_wait', '~> 0.0.4'
+
+And then execute:
+
+    $ bundle
 
 
 ## Usage
@@ -41,22 +50,12 @@ In the file <tt>config/database.yml</tt> of the Rails application, indicate a ti
 Then restart the application to establish the new database settings.
 
 
-## Installation
-
-Add this line to your application's Gemfile:
-
-    gem 'cant_wait', '~> 0.0.4'
-
-And then execute:
-
-    $ bundle
-
-
 ## Dependencies
 
-Previous versions of Rails are not compatible with the last version of bundler, so the minimum requirement is Rails 3.0.3.
+The minimum requirement is Rails 3.0.3.  The gem has been tested with Rails 3.0.3 and above (including version 4.0.0).  Previous versions of Rails are not compatible with the present version of bundler.
 
-The gem has been tested with Rails 3.0.3 and above (including version 4.0.0).  It has also been tested with PostgreSQL versions 8 and 9, but it may work also in other versions supported by Active Record (see PostgreSQL documentation).
+It has also been tested with PostgreSQL versions 8 and 9, but it may work also in other versions supported by Active Record (see PostgreSQL documentation).
+
 
 ### Supported Rubies
 
@@ -68,23 +67,24 @@ The gem has been tested with Rails 3.0.3 and above (including version 4.0.0).  I
 - jruby
 - Rubinius
 
-The gem may work just fine with a Ruby flavors/versions not listed above.
+The gem may work fine with other Ruby flavors/versions not listed above.
 
-See the development documentation for more details.
+See the development documentation below for more details.
 
 
-## Development / Contributing
+## Development
 
-* Source hosted on [GitHub](https://github.com/CarlosCD/cant_wait)
-* Details on the test setup are in the file README.md within the test folder.  It includes details on testing in several Ruby and Rails versions.
+If you find any problem, please feel free to open an issue at the gem's repository ([GitHub](https://github.com/CarlosCD/cant_wait)).
 
-Contributing:
+These files could be of particular interest:
 
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
++ [The Change Log](https://github.com/CarlosCD/cant_wait/blob/master/CHANGELOG.md)
++ [Test setup details](https://github.com/CarlosCD/cant_wait/blob/master/test/README.md)
+
+
+## Signature
+
+All the versions of **cant_wait** released from rubygems.org have been digitally signed.
 
 
 ## License
@@ -92,4 +92,4 @@ Contributing:
 **cant_wait** is released under the [MIT License](http://opensource.org/licenses/MIT).
 
 
-June 2013
+August 2013
