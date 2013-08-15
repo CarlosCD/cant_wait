@@ -31,9 +31,10 @@ Documentation:
 
   - Changes in the documentation
   - Minimum ruby is MRI 1.9.1 or compatible
-  - Added a 'runtime dependencies' security advisory service (a dynamic badge on the README files)
+  - Added a 'runtime dependencies' security advisory service.  A dynamic badge on the README files
 
 Development:
 
+  - Encoding UTF-8 (ruby 1.9)
+  - Minor tweaks in the tests
   - Tested with new patches of MRI for C Ruby 1.9.3 and 2.0.0
-  - Minor changes in the tests
