@@ -24,8 +24,8 @@ Development:
   - Travis scripts stability fixes
   - Tests for Rails 4.0.0
 
-0.0.4.alpha (August 15, 2013)
-=============================
+0.0.4 (August 15, 2013)
+=======================
 
 Features:
 
