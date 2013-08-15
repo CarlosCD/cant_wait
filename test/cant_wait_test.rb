@@ -9,7 +9,7 @@ class CantWait1Test < MiniTest::Unit::TestCase
   TEST_RAILS_APP = [{ version: '3.0.3',  rails_root: 'test_apps/Test_3_0_03'},
                     { version: '3.0.20', rails_root: 'test_apps/Test_3_0_20'},
                     { version: '3.1.12', rails_root: 'test_apps/Test_3_1_12'},
-                    { version: '3.2.13', rails_root: 'test_apps/Test_3_2_13'},
+                    { version: '3.2.14', rails_root: 'test_apps/Test_3_2_14'},
                     { version: '4.0.0',  rails_root: 'test_apps/Test_4_0_0' }]
 
   # Set a random timeout and rails app to be tested

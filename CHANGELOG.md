@@ -38,3 +38,4 @@ Development:
   - Encoding UTF-8 (ruby 1.9)
   - Minor tweaks in the tests
   - Tested with new patches of MRI for C Ruby 1.9.3 and 2.0.0
+  - Tests for Rails 3.2.14

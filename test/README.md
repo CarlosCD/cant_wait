@@ -120,7 +120,8 @@ Check the .travis.yml file for details.
         Rails 3.0.3      First version using Bundler 1.3.5 (incompatible with Bundler 1.0.X)
         Rails 3.0.20     Last patchlevel of Rails 3.0 (at this moment)
         Rails 3.1.12     Last patchlevel of Rails 3.1
-        Rails 3.2.13     Last patchlevel of Rails 3.2 (many security fixes, last stable version)
+        Rails 3.2.13
+        Rails 3.2.14     Last patchlevel of Rails 3.2 (many security fixes, last stable version)
         Rails 4.0.0      Last Release of Rails 4.0
 
 * PostgreSQL versions 8.3.6 and 9.2.4.
