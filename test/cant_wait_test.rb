@@ -29,7 +29,7 @@ class CantWait1Test < MiniTest::Unit::TestCase
 
     puts "Rails version aimed at: #{@rails_app[:version]}" if @verbose
     # Choose one timeout option:
-    test_chosen = random_number((1..3))
+    test_chosen = random_number (1..4)
     case test_chosen
       when 1 then
         # No timeout set:
@@ -41,9 +41,9 @@ class CantWait1Test < MiniTest::Unit::TestCase
         @timeout = 300_000  # 60x5 = 300 => 300,000 milliseconds
         puts "Timeout set at 5 minutes (#{@timeout} milliseconds)"
         @expected_result = @timeout
-      when 3 then
+      when 3, 4 then  # Giving more chances to this option
         # Random timeout (1 sec to 1 hour)
-        @timeout = random_number(((1_000)..(3_600_000)))
+        @timeout = random_number ((1_000)..(3_600_000))
         puts "Random timeout (from 1 second to 1 hour): #{@timeout} millisec ~> #{@timeout/1_000} sec ~> #{@timeout/60_000} min"
         @expected_result = @timeout
     end
@@ -97,12 +97,8 @@ DATABASE_SETTINGS
 
   private
 
-  def random_number(range)
-    if range.is_a? Range
-      range.min + rand(range.max + 1 - range.min)
-    else
-      0
-    end
+  def random_number(collection)
+    collection.to_a.sample if collection.respond_to? :to_a
   end
 
   def statement_timeout

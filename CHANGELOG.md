@@ -36,4 +36,4 @@ Documentation:
 Development:
 
   - Tested with new patches of MRI for C Ruby 1.9.3 and 2.0.0
-  - Minor change in the tests
+  - Minor changes in the tests
