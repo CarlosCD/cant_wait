@@ -107,7 +107,7 @@ namespace :test do
       puts '============================================================'
       print '  rvm setting (if rvm is being used): '
       system 'rvm current'
-      puts "  Gem's ENV['BUNDLE_GEMFILE']='#{ENV['BUNDLE_GEMFILE']}'" if verbose
+      puts "  Gem's ENV['BUNDLE_GEMFILE']='#{ENV['BUNDLE_GEMFILE']}'"
     end
     can_wait_bundle_gemfile = ENV['BUNDLE_GEMFILE']
     initial_directory = FileUtils.pwd

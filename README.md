@@ -52,7 +52,9 @@ Then restart the application to establish the new database settings.
 
 ## Dependencies
 
-The minimum requirement is Rails 3.0.3.  The gem has been tested with Rails 3.0.3 and above (including version 4.0.0).  Previous versions of Rails are not compatible with the present version of bundler.
+The minimum requirement is Rails 3.0.3 and ruby.  The gem has been tested with Rails 3.0.3 and above (including version 4.0.0).  Previous versions of Rails are not compatible with the present version of bundler.
+
+The minimum version of ruby is MRI 1.9.1 or compatible, as the gem uses 1.9 syntax.
 
 It has also been tested with PostgreSQL versions 8 and 9, but it may work also in other versions supported by Active Record (see PostgreSQL documentation).
 

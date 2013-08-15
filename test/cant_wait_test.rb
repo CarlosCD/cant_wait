@@ -42,9 +42,9 @@ class CantWait1Test < MiniTest::Unit::TestCase
         puts "Timeout set at 5 minutes (#{@timeout} milliseconds)"
         @expected_result = @timeout
       when 3 then
-        # Random timeout (1 min to 10 hours)
-        @timeout = random_number(((60_000)..(10*60*60_000)))  # 1 minute to 10 hours
-        puts "Random timeout (1 sec. to 10 min.): #{@timeout} millisecods ~> #{@timeout/1_000.0} sec ~> #{@timeout/60_000} min"
+        # Random timeout (1 sec to 1 hour)
+        @timeout = random_number(((1_000)..(3_600_000)))
+        puts "Random timeout (from 1 second to 1 hour): #{@timeout} millisec ~> #{@timeout/1_000} sec ~> #{@timeout/60_000} min"
         @expected_result = @timeout
     end
   end

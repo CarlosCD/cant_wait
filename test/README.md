@@ -112,6 +112,8 @@ Check the .travis.yml file for details.
         jruby 1.7.4         (Java 1.7.0_21)                   Linux
         Rubinius 2.0.0.w30  (1.9.3)                           Linux
 
+  It requires at least MRI 1.9.1 or compatible.
+
 * Versions of Rails:
 
         Rails 3.0.3      First version using Bundler 1.3.5 (incompatible with Bundler 1.0.X)

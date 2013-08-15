@@ -4,9 +4,11 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'cant_wait/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'cant_wait'
-  spec.version       = CantWait::VERSION
-  spec.platform      = Gem::Platform::RUBY
+  spec.name                  = 'cant_wait'
+  spec.version               = CantWait::VERSION
+  spec.platform              = Gem::Platform::RUBY
+  spec.required_ruby_version = '>= 1.9.1'
+
   spec.summary       = 'Complements the Ruby on Rails web application framework by providing statement timeouts for PostgreSQL databases.'
   spec.description   = 'Provides statement timeouts for PostgreSQL databases in a Ruby on Rails web application. Stops any SQL statement ' <<
                        'that takes more than a specified number of milliseconds.'
