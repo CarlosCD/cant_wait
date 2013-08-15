@@ -24,10 +24,8 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'rails', '>= 3.0.3'
 
-  if $0 =~ /gem\z/
-    spec.cert_chain  = ['/users/CarlosCD/.ssh/public_cert.pem']
-    spec.signing_key = '/users/CarlosCD/.ssh/private_key.pem'
-  end
+  spec.cert_chain  = ['cert/public_cert.pem']
+  spec.signing_key = '/users/CarlosCD/.ssh/keys.pem' if $0 =~ /gem\z/
 
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.add_development_dependency 'bundler', '~> 1.3'

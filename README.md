@@ -36,7 +36,7 @@ Add this line to your application's Gemfile:
 
 And then execute:
 
-    $ bundle
+    bundle
 
 
 ## Usage
@@ -75,6 +75,13 @@ The gem may work fine with other Ruby flavors/versions not listed above.
 See the development documentation below for more details.
 
 
+## Signature
+
+All the versions of **cant_wait** released from rubygems.org have been digitally signed.
+
+To verify that the gem has not been tampered with, I am providing the certificate used in its repository, at [Github](https://github.com/CarlosCD/cant_wait).
+
+
 ## Development
 
 If you find any problem, please feel free to open an issue at the gem's repository ([GitHub](https://github.com/CarlosCD/cant_wait)).
@@ -83,11 +90,7 @@ These files could be of particular interest:
 
 + [The Change Log](https://github.com/CarlosCD/cant_wait/blob/master/CHANGELOG.md)
 + [Test setup details](https://github.com/CarlosCD/cant_wait/blob/master/test/README.md)
-
-
-## Signature
-
-All the versions of **cant_wait** released from rubygems.org have been digitally signed.
++ [Gem signature verification](https://github.com/CarlosCD/cant_wait/blob/master/cert/README.md)
 
 
 ## License

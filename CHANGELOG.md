@@ -24,7 +24,7 @@ Development:
   - Travis scripts stability fixes
   - Tests for Rails 4.0.0
 
-0.0.4.alpha (August 14, 2013)
+0.0.4.alpha (August 15, 2013)
 =============================
 
 Features:
@@ -36,6 +36,7 @@ Documentation:
   - Changes in the documentation
   - Minimum ruby is MRI 1.9.1 or compatible
   - Added a 'runtime dependencies' security advisory service.  A dynamic badge on the README files
+  - Added the code signing certificate, for gem signature verification
 
 Development:
 
