@@ -7,20 +7,20 @@
 
 - Minitest, to keep things simple.
 - PostgreSQL database server (localhost or not).
-- I used rvm (not a need if other ruby version manager is preferred). 
+- I used RVM.  This is not a requirement, other ruby version managers should work as well.
 
 
 ## Test strategy: different Rails apps with random timeouts
 
 ### The problem
 
-The approach of using minimal Rails components (ActiveRecord, Railties) is problematic due to the amount of code that Rails loads and of how it changes the default Ruby behavior.  I opted here to test replicating the way an end user would use the gem.
+The approach of using minimal Rails components (ActiveRecord, Railties) is problematic due to the amount of code Rails loads and of how it changes Ruby's standard behavior.  I wanted to test it as close as possible to how an end user would use the gem.
 
-To test in different Rails versions requires running several Rails Apps either simultaneously or sequentially.  Even if it is done in different threads, being a Rails Application a singleton, it will result in:
+To test different versions of Rails, and different timeout scenarios, requires to run several Rails apps either simultaneously or sequentially.  Even using different threads, being a Rails Application a singleton, it will end up in:
 
     RuntimeError: You cannot have more than one Rails::Application
 
-This path also would make the test cases too distant to the real conditions you may encounter in isolated Rails applications, and even if the singleton restriction is removed (see this interesting discussion regarding Rails 4.1: <https://github.com/rails/rails/pull/9655>), it will still apply to old versions of Rails.
+This path would also make the test cases too distant to the real conditions of an isolated Rails app.  Even if the singleton restriction is removed in the future (see this interesting discussion regarding Rails 4.1: <https://github.com/rails/rails/pull/9655>), it will still apply to older versions of Rails.
 
 ### A solution
 
@@ -45,9 +45,9 @@ Then I modified their Gemfile by adding gems for PostgreSQL, Minitest and Growl:
 
     gem 'cant_wait', path: File.expand_path('../../../..', __FILE__)
 
-The rails apps require bundle install, specially when changing the version of Ruby to be used. To make it easier, I added a rake task (<tt>rake test:bundle</tt>).
+The rails apps require also to run <tt>bundle install</tt> for each app, especially when changing the version of Ruby used.  To make it easier, I added a rake task (<tt>rake test:bundle</tt>).
 
-The test is run through the <tt>rake test:run</tt> command.  The test goes over each Rails app in sequence and:
+The actual test is run through the <tt>rake test:run</tt> command.  It goes over each Rails app in sequence and:
 
 1. It sets Bundler to use the test app's Gemfile
 2. It creates the app's <tt>config/database.yml</tt> with a random timeout
@@ -55,9 +55,9 @@ The test is run through the <tt>rake test:run</tt> command.  The test goes over 
 4. It checks the version of Rails and ActiveRecord running.
 5. It checks that the PostgreSQL connection's statement_timeout is the expected.
 
-Due to the complex setup needed, I choose not to use the rake default to run the test, just to signal the tester to stop to consider these choices.
+Due to the complex setup, and to signal the developer to stop and consider these choices, I chose not to use the rake default to run the tests, as it is most common.
 
-And additional <tt>rake test:all</tt> will do both the bundle install and run the tests. Travis-ci runs each of these tasks in sequence.
+An additional task <tt>rake test:all</tt> will do both the <tt>bundle install</tt> and run the tests.  Travis-ci also runs each of these tasks in sequence.
 
 
 ## The Testing process in detail
@@ -77,20 +77,20 @@ After cloning the gem, you can start testing it by following these steps:
 
 4. Set up your PostgreSQL test database and edit accordingly the file <tt>test/database.yml</tt>
 
-5. Get the Rails gems used by the test rails apps included:
+5. Get the gems used by the test Rails apps:
 
         rake test:bundle
 
-6. You are now done setting all up.  To run the tests:
+6. Your setup is complete.  To run the tests:
 
         rake test:run
 
-If so wanted, run the tests several times.  The tests use different random timeout scenarios, so each run may be a bit different.
+If desired, run the tests several times.  The tests use different random timeout scenarios, so each run may be a bit different.
 
 
 ## Travis
 
-I added travis-ci.org to check every build, as well as a badge to check the status last commit.
+I added travis-ci.org to check every build pushed to Github, and a clickable badge to check the status of the last test.
 
 Check the .travis.yml file for details.
 
@@ -127,7 +127,7 @@ Check the .travis.yml file for details.
 
 ## Development / Contributing
 
-If you find any problem, please feel free to open an issue at ([GitHub](https://github.com/CarlosCD/cant_wait)).
+If you find any problem, please feel free to open an 'issue' at [GitHub](https://github.com/CarlosCD/cant_wait).
 
 Contributing:
 

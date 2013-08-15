@@ -4,7 +4,7 @@
 [![Build Status](https://travis-ci.org/CarlosCD/cant_wait.png?branch=development)](https://travis-ci.org/CarlosCD/cant_wait)
 
 
-This Ruby gem allows to add a statement timeout for PostgreSQL databases within a Ruby on Rails application.
+This Ruby gem adds statement timeouts for PostgreSQL databases within a Ruby on Rails web application.
 
 From the PostgreSQL documentation:
 
