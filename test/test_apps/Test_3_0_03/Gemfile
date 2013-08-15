@@ -5,9 +5,7 @@ gem 'rails', '3.0.3'
 #-- Special additions-----------------
 # PostgreSQL as the database for ActiveRecord
 if RUBY_ENGINE == 'jruby' && RUBY_PLATFORM == 'java'
-  gem 'activerecord-jdbc-adapter', '~> 1.2'
   gem 'activerecord-jdbcpostgresql-adapter', '~> 1.2'
-  gem 'jdbc-postgres', '~> 9'
 else
   gem 'pg', '~> 0'
 end

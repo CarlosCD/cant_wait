@@ -31,9 +31,7 @@ I created 5 simple Rails apps, of different versions, in the folder test/test_ap
 Then I modified their Gemfile by adding gems for PostgreSQL, Minitest and Growl:
 
     if RUBY_ENGINE == 'jruby' && RUBY_PLATFORM == 'java'
-      gem 'activerecord-jdbc-adapter', '~> 1.2'
       gem 'activerecord-jdbcpostgresql-adapter', '~> 1.2'
-      gem 'jdbc-postgres', '~> 9'
     else
       gem 'pg', '~> 0'
     end
