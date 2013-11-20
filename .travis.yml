@@ -4,7 +4,8 @@ rvm:
   - 1.9.3
   - 2.0.0
   - jruby-19mode  # JRuby in 1.9 mode
-  - rbx-19mode    # Rubinius in 1.9 mode
+  # - rbx-19mode    # Rubinius in 1.9 mode
+  # - rbx-2.2.1     # Rubinius 2.2.1
 before_script:
   # Before, Travis does a bundle install (cant_wait's Gemfile), which installs the last version of Rails
   - psql -c "CREATE ROLE tester WITH LOGIN PASSWORD 'secret';" -U postgres

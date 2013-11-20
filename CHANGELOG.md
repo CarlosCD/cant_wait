@@ -51,3 +51,8 @@ Development:
 Documentation:
 
   - Bumped the version to 1.0.0, to signal that it is ready for production.  It was actually ready since version 0.0.1, so this change is just to avoid a possible confusion.
+
+Development:
+
+  - Minor tweaks in the tests.
+  - Changes in Travis-CI configuration, discontinuing support for Rubinius, while bugs in its interpreter get sorted out.

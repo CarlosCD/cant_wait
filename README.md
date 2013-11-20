@@ -68,7 +68,6 @@ It has also been tested with PostgreSQL versions 8 and 9, but it may work also i
 - 1.9.3
 - 2.0.0
 - jruby
-- Rubinius
 
 The gem may work fine with other Ruby flavors/versions not listed above.
 
