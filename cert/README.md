@@ -67,4 +67,4 @@ If used this way, unless additional parameters are added by your particular setu
 Please be aware that the practice of signing gems is not followed as a standard by the whole development community, so you may find that many of the most popular ruby gems are not signed (bundler and rails are not signed at this moment).  Therefore you may need to think about it, compromise, or carefully audit the code of the gems you try to install.
 
 
-August 2013
+November 2013

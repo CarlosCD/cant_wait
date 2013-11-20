@@ -44,3 +44,10 @@ Development:
   - Minor tweaks in the tests
   - Tested with new patches of MRI for C Ruby 1.9.3 and 2.0.0
   - Tests for Rails 3.2.14
+
+1.0.0.alpha (November 20, 2013)
+===============================
+
+Documentation:
+
+  - Bumped the version to 1.0.0, to signal that it is ready for production.  It was actually ready since version 0.0.1, so this change is just to avoid a possible confusion.
