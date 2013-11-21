@@ -5,10 +5,9 @@ Dir[File.join('tasks', '*.rake')].each do |file_name|
 end
 
 task :default do
-  puts 'No default task defined. Please take a look to test/Readme.md for details.'
-  puts 'Here is what you can do:'
-  puts
-  system 'bundle exec rake -T'
+  puts 'It is assumed that the test environment is ready...'
+  puts 'If needed, please review test/README.markdown for details about the testing set up.'
+  Rake::Task['test:run'].invoke
 end
 
 private

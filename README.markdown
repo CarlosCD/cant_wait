@@ -53,7 +53,7 @@ Then restart the application to establish the new database settings.
 
 ## Dependencies
 
-The minimum requirement is Rails 3.0.3 and ruby.  The gem has been tested with Rails 3.0.3 and above (including version 4.0.0).  Previous versions of Rails are not compatible with the present version of bundler.
+The minimum requirement is Rails 3.0.3 and ruby.  The gem has been tested with Rails 3.0.3 and above (including versions 4.0.0 and 4.0.1).  Previous versions of Rails are not compatible with the present version of bundler.
 
 The minimum version of ruby is MRI 1.9.1 or compatible, as the gem uses 1.9 syntax.
 
@@ -88,8 +88,8 @@ If you find any problem, please feel free to open an issue at the gem's reposito
 These files could be of particular interest:
 
 + [The Change Log](https://github.com/CarlosCD/cant_wait/blob/master/CHANGELOG.md)
-+ [Test setup details](https://github.com/CarlosCD/cant_wait/blob/master/test/README.md)
-+ [Gem signature verification](https://github.com/CarlosCD/cant_wait/blob/master/cert/README.md)
++ [Test setup details](https://github.com/CarlosCD/cant_wait/blob/master/test/README.markdown)
++ [Gem signature verification](https://github.com/CarlosCD/cant_wait/blob/master/cert/README.markdown)
 
 
 ## License

@@ -54,5 +54,7 @@ Documentation:
 
 Development:
 
-  - Minor tweaks in the tests.
+  - Minor tweaks in the test code.
+  - Tests for Rails 3.2.15 and 4.0.1
+  - Set up of the default rake test to run all the tests, without preparing the data (equivalent to <tt>rake test:run</tt>)
   - Changes in Travis-CI configuration, discontinuing support for Rubinius, while bugs in its interpreter get sorted out.

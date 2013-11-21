@@ -100,17 +100,11 @@ Check the .travis.yml file for details.
 * Versions of Ruby:
 
         1.9.2-p320          (MRI's last patchlevel of 1.9.2)  Linux and Mac OS X
-        1.9.3-p327          (MRI)                             Linux
-        1.9.3-p429          (MRI)                             Linux and Mac OS X
         1.9.3-p448          (MRI last patchlevel of 1.9.3)    Linux and Mac OS X
-        2.0.0-p0            (MRI)                             Linux
-        2.0.0-p195          (MRI)                             Linux and Mac OS X
         2.0.0-p247          (MRI last patchlevel of 2.0.0)    Linux and Mac OS X
-        jruby 1.7.3         (Java 1.7.0_15)                   Linux
-        jruby 1.7.4         (Java 1.6.0_45)                   Mac OS X
-        jruby 1.7.4         (Java 1.7.0_21)                   Linux
-        jruby 1.7.8         (Java 1.7.0_45)                   Linux
-        Rubinius 2.0.0.w30  (1.9.3)                           Linux
+        jruby 1.7.8         (Java 1.6.0)                      Mac OS X
+        jruby 1.7.8         (Java 1.7.0)                      Linux
+        Rubinius 2.0.0      (1.9.3-compatible)                Linux
 
   It requires at least MRI 1.9.1 or compatible.
 
@@ -119,9 +113,8 @@ Check the .travis.yml file for details.
         Rails 3.0.3      First version using Bundler 1.3.5 (incompatible with Bundler 1.0.X)
         Rails 3.0.20     Last patchlevel of Rails 3.0 (at this moment)
         Rails 3.1.12     Last patchlevel of Rails 3.1
-        Rails 3.2.13
-        Rails 3.2.14     Last patchlevel of Rails 3.2 (many security fixes, last stable version)
-        Rails 4.0.0      Last Release of Rails 4.0
+        Rails 3.2.15     Last patchlevel of Rails 3.2
+        Rails 4.0.1      Last Release of Rails 4.0
 
 * PostgreSQL versions 8.3.6 and 9.2.4.
 
