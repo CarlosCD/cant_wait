@@ -45,8 +45,8 @@ Development:
   - Tested with new patches of MRI for C Ruby 1.9.3 and 2.0.0
   - Tests for Rails 3.2.14
 
-1.0.0.alpha (November 20, 2013)
-===============================
+1.0.0 (November 20, 2013)
+=========================
 
 Documentation:
 
