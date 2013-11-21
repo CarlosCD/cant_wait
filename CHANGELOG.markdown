@@ -65,3 +65,6 @@ Development:
 Documentation:
 
   - Tiny documentation change.
+
+1.0.2.alpha (November 21, 2013)
+===============================
