@@ -137,8 +137,8 @@ namespace :test do
           if (RUBY_ENGINE == 'jruby') && (TEST_RAILS_APP[num][:version].to_f == 3.1 || TEST_RAILS_APP[num][:version] >= '4')
             puts 'PostGIS: activerecord-postgis-adapter for JRuby does not support Rails 3.1 or Rails 4... test skipped!'
           else
-            #   we run the test even if it could have failed for PostgreSQL
-            # all_passing = false unless system "bundle exec ruby test/cant_wait_test.rb #{num} postgis #{@gem_spec.version} #{'V' if verbose}"
+            # We run the test even if it could have failed for PostgreSQL
+            all_passing = false unless system "bundle exec ruby test/cant_wait_test.rb #{num} postgis #{@gem_spec.version} #{'V' if verbose}"
           end
         else
           puts ' bundle check and bundle failed! Check your rails test app Gemfile.'

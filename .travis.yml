@@ -5,8 +5,13 @@ rvm:
   - 2.0.0
   - jruby-19mode  # JRuby in 1.9 mode
 before_script:
+  # PostgreSQL:
   - psql -c "CREATE ROLE tester WITH LOGIN PASSWORD 'secret';" -U postgres
   - psql -c 'CREATE DATABASE test WITH OWNER=tester;' -U postgres
+  # PostGIS:
+  - sudo apt-get install -qq postgis
+  - psql -d test -c 'CREATE EXTENSION postgis;' -U postgres
+  - psql -c "SELECT name,default_version,installed_version FROM pg_available_extensions WHERE name='postgis';" -U postgres
   # Travis does a bundle install (cant_wait's Gemfile), which installs the last version of Rails,
   #   as it is a dependency. We remove the rails gem to allow the installation of previous versions:
   - gem uninstall rails
