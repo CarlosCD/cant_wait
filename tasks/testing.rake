@@ -145,7 +145,7 @@ namespace :test do
       puts "Finally set again the gem ENV['BUNDLE_GEMFILE'] as:"
       puts "  '#{ENV['BUNDLE_GEMFILE']}'"
     end
-    exit(1) unless all_passing  # non zero meand build failure
+    exit(1) unless all_passing  # non zero means build failure
   end
 
   private

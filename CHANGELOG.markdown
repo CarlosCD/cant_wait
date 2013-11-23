@@ -68,3 +68,7 @@ Documentation:
 
 1.0.2.alpha (November 21, 2013)
 ===============================
+
+Features:
+
+  - Support for PostGIS databases.

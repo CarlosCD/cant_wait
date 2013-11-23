@@ -4,7 +4,7 @@
 [![Build Status](https://travis-ci.org/CarlosCD/cant_wait.png?branch=development)](https://travis-ci.org/CarlosCD/cant_wait)
 
 
-This Ruby gem adds statement timeouts for PostgreSQL databases within a Ruby on Rails web application.
+This Ruby gem adds statement timeouts for PostgreSQL and PostGIS databases within a Ruby on Rails web application.
 
 From the PostgreSQL documentation:
 
@@ -45,6 +45,13 @@ In the file <tt>config/database.yml</tt> of the Rails application, indicate a ti
 
     production:
       adapter: postgresql
+      timeout: 180_000  # 3 minutes
+      ...
+
+or, in the case of PostGIS:
+
+    production:
+      adapter: postgis
       timeout: 180_000  # 3 minutes
       ...
 
