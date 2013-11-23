@@ -66,7 +66,7 @@ Documentation:
 
   - Tiny documentation change.
 
-1.0.2.alpha (November 21, 2013)
+1.1.0.alpha (November 23, 2013)
 ===============================
 
 Features:

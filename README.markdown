@@ -32,7 +32,7 @@ If any SQL statement takes more time than the timeout value (measured in millise
 
 Add this line to your application's Gemfile:
 
-    gem 'cant_wait', '~> 1.0.2'
+    gem 'cant_wait', '~> 1.1.0'
 
 And then execute:
 
