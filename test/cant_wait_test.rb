@@ -1,12 +1,13 @@
 # Invocation from tasks/testing.rake:
-#   bundle exec ruby test/cant_wait_test.rb #{num} #{@gem_spec.version} #{'V' if verbose}
+#   bundle exec ruby test/cant_wait_test.rb  app_number  db_adapter  gem_version  verbose_flag
 #   Where the parameters are:
 #     1: Number from 0 to 4. Index of the rails app (see TEST_RAILS_APP)
-#     2: String with the Gem version, for example '1.0.0'.
-#     3: V, for verbose (optional)
+#     2: String, Database adapter. It can be either postgres or postgis
+#     3: String with the Gem version, for example '1.0.2'.
+#     4: V, for verbose (ptional)
 # Examples:
-#   bundle exec ruby test/cant_wait_test.rb 2 1.0.0
-#   bundle exec ruby test/cant_wait_test.rb 4 0.0.4 V
+#   bundle exec ruby test/cant_wait_test.rb 2 postgres 1.1.0
+#   bundle exec ruby test/cant_wait_test.rb 4 postgis 1.0.0 V
 
 require 'minitest/autorun'
 require 'minitest/growl_notify' if RUBY_PLATFORM =~ /darwin/i
@@ -22,14 +23,15 @@ class CantWaitTest < MiniTest::Unit::TestCase
                     { version: '3.2.15', rails_root: 'test_apps/Test_3_2_15'},
                     { version: '4.0.1',  rails_root: 'test_apps/Test_4_0_1' }]
 
-  # Sets a random timeout and a Rails app to be tested
+  # Sets a random timeout, postgresql or postgis, and a Rails app to be tested
   def setup
     # Arguments:
     # To be run from rake test, passing valid args:
-    raise 'Wrong number of arguments for test' unless (2..3).include? ARGV.length
+    raise 'Wrong number of arguments for test' unless (3..4).include? ARGV.length
     rails_app_index = ARGV[0].to_i # Rails app index passed as an argument:
-    @gem_version = ARGV[1]  # '0.0.1' or whatever
-    @verbose = ARGV[2] == 'V'
+    @db_kind = ARGV[1].to_sym  # :postgres or :postgis
+    @gem_version = ARGV[2]  # '1.0.1' or whatever
+    @verbose = ARGV[3] == 'V'
 
     # If app value given is not valid, we choose a random one:
     valid_range = (0..(TEST_RAILS_APP.length-1))
@@ -38,6 +40,10 @@ class CantWaitTest < MiniTest::Unit::TestCase
     puts "Rails version aimed at: #{@rails_app[:version]}" if @verbose
 
     raise 'At least Ruby 1.9.3 is required for rails 4 or above' if (@rails_app[:version] >= '4') && (RUBY_VERSION < '1.9.3')
+
+    # If the adapter is not valid, we default to postgres:
+    @db_kind = :postgres unless @db_kind == :postgis
+    puts "Testing the #{@db_kind} adapter."
 
     # Choose timeout option:
     test_chosen = random_number (1..4)
@@ -99,13 +105,20 @@ class CantWaitTest < MiniTest::Unit::TestCase
   end
 
   def database_yml_contents
+    database_yml_shared +
+      case @db_kind
+      when :postgres then "  adapter: postgresql\n"
+      when :postgis then  "  adapter: postgis\n"
+      end
+  end
+
+  def database_yml_shared
     database_file = File.join(File.dirname(__FILE__), '/database.yml')
     if File.exist?(database_file)
       File.read(database_file)
     else
       <<-DATABASE_SETTINGS
 test:
-  adapter: postgresql
   host: localhost
   database: test
   username: tester

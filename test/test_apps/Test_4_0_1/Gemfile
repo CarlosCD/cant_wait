@@ -42,11 +42,12 @@ end
 # gem 'debugger', group: [:development, :test]
 
 #-- Special additions-----------------
-# PostgreSQL as the database for ActiveRecord
+# PostgreSQL and PostGIS as database for ActiveRecord
 if RUBY_ENGINE == 'jruby' && RUBY_PLATFORM == 'java'
   gem 'activerecord-jdbcpostgresql-adapter', '~> 1.2'
 else
   gem 'pg', '~> 0'
+  gem 'activerecord-postgis-adapter', '~> 0.6'
 end
 
 # Minitest and Growl:

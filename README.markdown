@@ -66,6 +66,8 @@ The minimum version of ruby is MRI 1.9.1 or compatible, as the gem uses 1.9 synt
 
 It has also been tested with PostgreSQL versions 8 and 9, but it may work also in other versions supported by Active Record (see PostgreSQL documentation).
 
+It has also been tested using PostGIS 2.1, but other versions supported by the activerecord-postgis-adapter should work as well.
+
 
 ### Supported Rubies
 

@@ -43,6 +43,9 @@ else
   gem 'pg', '~> 0'
 end
 
+# PostGIS ActiveRecord Adapter:
+gem 'activerecord-postgis-adapter', '~> 0.6'
+
 # Minitest and Growl:
 if RUBY_PLATFORM =~ /darwin/i
   gem 'minitest-growl', '~> 0.0.3'

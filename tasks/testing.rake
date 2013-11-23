@@ -131,7 +131,15 @@ namespace :test do
           end
           # Run several timeouts test for that version of rails (bundle exec...)
           #   Only the last argument (V) is optional here:
-          all_passing = false unless system "bundle exec ruby test/cant_wait_test.rb #{num} #{@gem_spec.version} #{'V' if verbose}"
+          # For PostgreSQL:
+          all_passing = false unless system "bundle exec ruby test/cant_wait_test.rb #{num} postgres #{@gem_spec.version} #{'V' if verbose}"
+          # For PostGIS
+          if (RUBY_ENGINE == 'jruby') && (TEST_RAILS_APP[num][:version].to_f == 3.1 || TEST_RAILS_APP[num][:version] >= '4')
+            puts 'PostGIS: activerecord-postgis-adapter for JRuby does not support Rails 3.1 or Rails 4... test skipped!'
+          else
+            #   we run the test even if it could have failed for PostgreSQL
+            # all_passing = false unless system "bundle exec ruby test/cant_wait_test.rb #{num} postgis #{@gem_spec.version} #{'V' if verbose}"
+          end
         else
           puts ' bundle check and bundle failed! Check your rails test app Gemfile.'
           puts ' If there are missing gems, run rake test:bundle'

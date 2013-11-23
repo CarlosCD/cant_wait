@@ -6,9 +6,16 @@
 ## Test setup and choices
 
 - Minitest, to keep things simple.
-- PostgreSQL database server (localhost or not).
+- PostgreSQL database server (localhost or not), with PostGIS.
 - I used RVM.  This is not a requirement, other ruby version managers should work as well.
 
+## PostGIS
+
+After installing PostgreSQL, install PostGIS. See details at [postgis.org][http://www.postgis.org/docs/postgis_installation.html).
+
+In the case of Mac OS X, consider to use Postgres app, which bundles PostGIS.
+
+To test PostGIS in Rails, I am using the gem 'activerecord-postgis-adapter', which seem to be actively maintained. However, I noticed that the gem errs in the case of JRuby for Rails 3.1.X, and it doesn't support Rails 4.X yet.
 
 ## Test strategy: different Rails apps with random timeouts
 
@@ -28,12 +35,32 @@ I finally chose to test several versions of Rails/ActiveRecord independently.
 
 I created 5 simple Rails apps, of different versions, in the folder test/test_apps.
 
-Then I modified their Gemfile by adding gems for PostgreSQL, Minitest and Growl:
+Then I modified their Gemfile by adding gems for PostgreSQL, PostGIS, Minitest and Growl:
 
     if RUBY_ENGINE == 'jruby' && RUBY_PLATFORM == 'java'
       gem 'activerecord-jdbcpostgresql-adapter', '~> 1.2'
     else
       gem 'pg', '~> 0'
+    end
+
+    gem 'activerecord-postgis-adapter', '~> 0.6'
+
+    if RUBY_PLATFORM =~ /darwin/i
+      gem 'minitest-growl', '~> 0.0.3'
+      gem 'minitest', '~> 4.7.4'
+    else
+      gem('minitest', '~> 5') if RUBY_VERSION < '1.9.3'
+    end
+
+    gem 'cant_wait', path: File.expand_path('../../../..', __FILE__)
+
+In the particular case of Rails 3.1 and 4, as at this point <tt>activerecord-postgis-adapter</tt> doesn't support Rails 4 for JRuby, and errs in the case of 3.1.  As a consequence, I don't run that test and I also don't add that gem to the Gemfile, having instead:
+
+    if RUBY_ENGINE == 'jruby' && RUBY_PLATFORM == 'java'
+      gem 'activerecord-jdbcpostgresql-adapter', '~> 1.2'
+    else
+      gem 'pg', '~> 0'
+      gem 'activerecord-postgis-adapter', '~> 0.6'
     end
 
     if RUBY_PLATFORM =~ /darwin/i
@@ -50,7 +77,7 @@ The rails apps require also to run <tt>bundle install</tt> for each app, especia
 The actual test is run through the <tt>rake test:run</tt> command.  It goes over each Rails app in sequence and:
 
 1. It sets Bundler to use the test app's Gemfile
-2. It creates the app's <tt>config/database.yml</tt> with a random timeout
+2. It creates the app's <tt>config/database.yml</tt> with a random timeout and either PostgreSQL or PostGIS
 3. It starts Rails
 4. It checks the version of Rails and ActiveRecord running.
 5. It checks that the PostgreSQL connection's statement_timeout is the expected.
@@ -75,7 +102,7 @@ After cloning the gem, you can start testing it by following these steps:
 
         bundle
 
-4. Set up your PostgreSQL test database and edit accordingly the file <tt>test/database.yml</tt>
+4. Set up your PostgreSQL/PostGIS test database and edit accordingly the file <tt>test/database.yml</tt>, not specifying the adapter in the file.
 
 5. Get the gems used by the test Rails apps:
 
@@ -99,12 +126,13 @@ Check the .travis.yml file for details.
 
 * Versions of Ruby:
 
-        1.9.2-p320          (MRI's last patchlevel of 1.9.2)  Linux and Mac OS X
-        1.9.3-p448          (MRI last patchlevel of 1.9.3)    Linux and Mac OS X
-        2.0.0-p247          (MRI last patchlevel of 2.0.0)    Linux and Mac OS X
-        jruby 1.7.8         (Java 1.6.0)                      Mac OS X
+        1.9.2-p320          (MRI's last patchlevel of 1.9.2)  Linux and Apple OS X
+        1.9.3-p448                                            Linux
+        1.9.3-p484          (MRI last patchlevel of 1.9.3)    Apple OS X
+        2.0.0-p247                                            Linux
+        2.0.0-p353          (MRI last patchlevel of 2.0.0)    Apple OS X
+        jruby 1.7.8         (Java 1.6.0)                      Apple OS X
         jruby 1.7.8         (Java 1.7.0)                      Linux
-        Rubinius 2.0.0      (1.9.3-compatible)                Linux
 
   It requires at least MRI 1.9.1 or compatible.
 
@@ -116,7 +144,9 @@ Check the .travis.yml file for details.
         Rails 3.2.15     Last patchlevel of Rails 3.2
         Rails 4.0.1      Last Release of Rails 4.0
 
-* PostgreSQL versions 8.3.6 and 9.2.4.
+* PostgreSQL versions 8.3.6, 9.2.4 and 9.3.1.
+
+* PostGIS 2.1.0
 
 
 ## Development / Contributing

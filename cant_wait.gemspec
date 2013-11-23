@@ -36,6 +36,7 @@ Gem::Specification.new do |spec|
   else
     spec.add_development_dependency 'pg', '~> 0'
   end
+  spec.add_development_dependency 'activerecord-postgis-adapter', '~> 0.6'
   if RUBY_PLATFORM =~ /darwin/i
     spec.add_development_dependency 'minitest-growl', '~> 0.0.3'
     # minitest-growl small problem with minitest 5:
