@@ -1,5 +1,8 @@
 ## 1.1.1 (November 24, 2013)
 
+Documentation:
+
+  - Tiny documentation change (Code Climate badge).
 
 ## 1.1.0 (November 24, 2013)
 
