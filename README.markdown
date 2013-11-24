@@ -2,7 +2,7 @@
 [![Gem Version](https://badge.fury.io/rb/cant_wait.png)](https://badge.fury.io/rb/cant_wait)
 [![Dependency Status](https://gemnasium.com/CarlosCD/cant_wait.png)](https://gemnasium.com/CarlosCD/cant_wait)
 [![Code Climate](https://codeclimate.com/github/CarlosCD/cant_wait.png)](https://codeclimate.com/github/CarlosCD/cant_wait)
-[![Build Status](https://travis-ci.org/CarlosCD/cant_wait.png?branch=master)](https://travis-ci.org/CarlosCD/cant_wait)
+[![Build Status](https://travis-ci.org/CarlosCD/cant_wait.png?branch=development)](https://travis-ci.org/CarlosCD/cant_wait)
 
 
 This Ruby gem adds statement timeouts for PostgreSQL and PostGIS databases within a Ruby on Rails web application.
@@ -33,7 +33,7 @@ If any SQL statement takes more time than the timeout value (measured in millise
 
 Add this line to your application's Gemfile:
 
-    gem 'cant_wait', '~> 1.1.1'
+    gem 'cant_wait', '~> 1.1.2'
 
 And then execute:
 
