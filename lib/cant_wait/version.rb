@@ -1,5 +1,5 @@
 # encoding: utf-8
 
 module CantWait
-  VERSION = '1.1.0.alpha'
+  VERSION = '1.1.0'
 end

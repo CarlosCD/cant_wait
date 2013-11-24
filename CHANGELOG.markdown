@@ -1,31 +1,29 @@
-0.0.2 (June 15, 2013)
-=====================
+## 1.1.0 (November 24, 2013)
+
+Features:
+
+  - Support for PostGIS databases (thanks to Kimitake Miyashita).
+
+## 1.0.1 (November 21, 2013)
 
 Documentation:
 
-  - Minor changes in the documentation
+  - Tiny documentation change.
 
-Development:
-
-  - Integration with travis-ci.org
-  - Added tests for Rails 4.0.0.rc2
-  - Minor code refactoring (no changes in functionality)
-  - Added a new rake task to run <tt>test:bundle</tt> and <tt>test:run</tt> in one pass
-
-0.0.3 (June 26, 2013)
-=====================
+## 1.0.0 (November 20, 2013)
 
 Documentation:
 
-  - Some minor changes in the documentation
+  - Bumped the version to 1.0.0, to signal that it is ready for production.  It was actually ready since version 0.0.1, so this change is just to avoid a possible confusion.
 
 Development:
 
-  - Travis scripts stability fixes
-  - Tests for Rails 4.0.0
+  - Minor tweaks in the test code.
+  - Tests for Rails 3.2.15 and 4.0.1
+  - Set up of the default rake test to run all the tests, without preparing the data (equivalent to <tt>rake test:run</tt>)
+  - Changes in Travis-CI configuration, discontinuing support for Rubinius, while bugs in its interpreter get sorted out.
 
-0.0.4 (August 15, 2013)
-=======================
+## 0.0.4 (August 15, 2013)
 
 Features:
 
@@ -45,30 +43,26 @@ Development:
   - Tested with new patches of MRI for C Ruby 1.9.3 and 2.0.0
   - Tests for Rails 3.2.14
 
-1.0.0 (November 20, 2013)
-=========================
+## 0.0.3 (June 26, 2013)
 
 Documentation:
 
-  - Bumped the version to 1.0.0, to signal that it is ready for production.  It was actually ready since version 0.0.1, so this change is just to avoid a possible confusion.
+  - Some minor changes in the documentation
 
 Development:
 
-  - Minor tweaks in the test code.
-  - Tests for Rails 3.2.15 and 4.0.1
-  - Set up of the default rake test to run all the tests, without preparing the data (equivalent to <tt>rake test:run</tt>)
-  - Changes in Travis-CI configuration, discontinuing support for Rubinius, while bugs in its interpreter get sorted out.
+  - Travis scripts stability fixes
+  - Tests for Rails 4.0.0
 
-1.0.1 (November 21, 2013)
-=========================
+## 0.0.2 (June 15, 2013)
 
 Documentation:
 
-  - Tiny documentation change.
+  - Minor changes in the documentation
 
-1.1.0.alpha (November 23, 2013)
-===============================
+Development:
 
-Features:
-
-  - Support for PostGIS databases.
+  - Integration with travis-ci.org
+  - Added tests for Rails 4.0.0.rc2
+  - Minor code refactoring (no changes in functionality)
+  - Added a new rake task to run <tt>test:bundle</tt> and <tt>test:run</tt> in one pass
