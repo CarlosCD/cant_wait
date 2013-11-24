@@ -1,6 +1,7 @@
 # cant_wait ~ Gem Signature verification
 [![Gem Version](https://badge.fury.io/rb/cant_wait.png)](https://badge.fury.io/rb/cant_wait)
 [![Dependency Status](https://gemnasium.com/CarlosCD/cant_wait.png)](https://gemnasium.com/CarlosCD/cant_wait)
+[![Code Climate](https://codeclimate.com/github/CarlosCD/cant_wait.png)](https://codeclimate.com/github/CarlosCD/cant_wait)
 
 
 All the versions of **cant_wait** released from rubygems.org have been digitally signed.
