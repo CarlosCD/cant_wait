@@ -2,7 +2,7 @@
 
 Features:
 
-  - Support for PostGIS databases (thanks to Kimitake Miyashita).
+  - Support for PostGIS databases.  Thanks to [Kimitake Miyashita](https://github.com/kimiyash).
 
 ## 1.0.1 (November 21, 2013)
 
