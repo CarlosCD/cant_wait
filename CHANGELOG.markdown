@@ -1,4 +1,8 @@
-## 1.1.2.alpha (November 24, 2013)
+## 1.1.2.alpha (November 25, 2013)
+
+Development:
+
+  - Minor change in the tests for PostGIS.
 
 ## 1.1.1 (November 24, 2013)
 

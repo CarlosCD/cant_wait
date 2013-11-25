@@ -108,7 +108,7 @@ class CantWaitTest < MiniTest::Unit::TestCase
     database_yml_shared +
       case @db_kind
       when :postgres then "  adapter: postgresql\n"
-      when :postgis then  "  adapter: postgis\n"
+      when :postgis  then "  adapter: postgis\n  potsgis_extension: true\n"
       end
   end
 
