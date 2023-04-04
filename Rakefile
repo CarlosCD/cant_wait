@@ -6,7 +6,7 @@ end
 
 task :default do
   puts 'It is assumed that the test environment is ready...'
-  puts 'If needed, please review test/README.markdown for details about the testing set up.'
+  puts 'If needed, please review test/README.md for details about the testing set up.'
   Rake::Task['test:run'].invoke
 end
 

@@ -97,9 +97,9 @@ If you find any problem, please feel free to open an issue at the gem's reposito
 
 These files could be of particular interest:
 
-+ [The change log](https://github.com/CarlosCD/cant_wait/blob/master/CHANGELOG.markdown)
-+ [Test setup details](https://github.com/CarlosCD/cant_wait/blob/master/test/README.markdown)
-+ [Gem signature verification](https://github.com/CarlosCD/cant_wait/blob/master/cert/README.markdown)
++ [The change log](https://github.com/CarlosCD/cant_wait/blob/master/CHANGELOG.md)
++ [Test setup details](https://github.com/CarlosCD/cant_wait/blob/master/test/README.md)
++ [Gem signature verification](https://github.com/CarlosCD/cant_wait/blob/master/cert/README.md)
 
 
 ## License
